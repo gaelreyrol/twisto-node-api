@@ -55,3 +55,9 @@ twst.getLines()
 - ```getLines``` - Retourne un tableau des lignes de bus et tram disponibles.
 - ```getBusStopsByLine``` Retourne un tableau des arrêts de bus de la ligne.
 - ```getNextBusesByBusStop``` Retourne un tableau des deux prochaines bus arrivant à l'arrêt.
+
+### ToDo
+
+ - [ ] Publish first pre-release
+ - [ ] Improve documentation
+ - [ ] Implement unit testing
