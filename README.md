@@ -61,3 +61,7 @@ twst.getLines()
  - [ ] Publish first pre-release
  - [ ] Improve documentation
  - [ ] Implement unit testing
+
+### Credits
+
+Merci à @outadoc pour ce [précieux gist](https://gist.github.com/outadoc/40060db45c436977a912)
