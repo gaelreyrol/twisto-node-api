@@ -1,6 +1,8 @@
 # twisto-node-api
 Implémentation de l'API Twisto pour NodeJs
 
+Version stable : ```0.1.0```
+
 ### Utilisation
 
 Installation avec npm :
