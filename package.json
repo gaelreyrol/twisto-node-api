@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "Implémentation de l'API Twisto pour NodeJs",
   "main": "lib",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint src",
+    "build": "babel src -d lib"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Zevran/twisto-node-api.git"
@@ -20,12 +23,13 @@
   },
   "homepage": "https://github.com/Zevran/twisto-node-api#readme",
   "dependencies": {
+    "babel-runtime": "^6.11.6",
     "moment": "^2.15.1",
     "superagent": "^2.3.0",
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
+    "babel-cli": "^6.16.0",
     "babel-core": "^6.16.0",
     "babel-eslint": "^7.0.0",
     "babel-plugin-add-module-exports": "^0.2.1",
