@@ -29,7 +29,7 @@ const twst = new Twisto();
 ```
 
 ### API
-Les méthodes suivent retourne une ```Promise``` donc il est possible de les chaîner.
+Les méthodes retournent une ```Promise``` il est donc possible de les chaîner.
 
 ```javascript
 import Twisto from 'twisto-node-api';
@@ -60,8 +60,8 @@ twst.getLines()
 
 ### ToDo
 
- - [ ] Publish first pre-release
- - [ ] Improve documentation
+ - [x] Publish first pre-release
+ - [x] Improve documentation
  - [ ] Implement unit testing
 
 ### Credits
