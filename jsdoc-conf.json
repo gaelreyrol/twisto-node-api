@@ -1,0 +1,40 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": [
+      "jsdoc"
+    ]
+  },
+  "source": {
+    "include": [
+      "README.md",
+      "package.json",
+      "src/"
+    ],
+    "exclude": [
+      "lib/"
+    ],
+    "includePattern": ".+\\.js(doc)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "opts": {
+    "template": "./node_modules/ink-docstrap/template",
+    "destination": "./docs/",
+    "recurse": true,
+    "verbose": true,
+    "encoding": "utf8",
+    "private": false,
+    "readme": "./README.md",
+    "package": "./package.json"
+  },
+  "templates": {
+    "outputSourceFiles": false,
+    "linenums": true,
+    "systemName": "twisto",
+    "theme": "cosmo",
+    "search": false
+  }
+}
