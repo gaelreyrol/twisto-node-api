@@ -29,39 +29,14 @@ const twst = new Twisto();
 ```
 
 ### API
-Les méthodes suivent retourne une ```Promise``` donc il est possible de les chaîner.
+Les méthodes retournent une ```Promise``` il est donc possible de les chaîner.
 
-```javascript
-import Twisto from 'twisto-node-api';
-
-const twst = new Twisto();
-twst.getLines()
-  .then((res) => {
-
-    return twst.getBusStopsByLine(res[1].code, 'A');
-  })
-  .then((res) => {
-
-    return twst.getNextBusesByBusStop(res[1].reference);
-  })
-  .then((res) => {
-
-    console.log(res);
-  })
-  .catch((err) => {
-
-    console.error(err);
-  });
-```
-
-- ```getLines``` - Retourne un tableau des lignes de bus et tram disponibles.
-- ```getBusStopsByLine``` Retourne un tableau des arrêts de bus de la ligne.
-- ```getNextBusesByBusStop``` Retourne un tableau des deux prochaines bus arrivant à l'arrêt.
+View online documentation =>  [zevran.github.io/twisto-node-api](http://zevran.github.io/twisto-node-api)
 
 ### ToDo
 
- - [ ] Publish first pre-release
- - [ ] Improve documentation
+ - [x] Publish first pre-release
+ - [x] Improve documentation
  - [ ] Implement unit testing
 
 ### Credits

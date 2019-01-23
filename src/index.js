@@ -2,13 +2,25 @@ import request from 'superagent';
 import { parseString as xmlParse } from 'xml2js';
 import moment from 'moment';
 
+/**
+ * [TWISTO_ENDPOINT]
+ * @description Twisto API Endpoint
+ * @type {String}
+ */
 const TWISTO_ENDPOINT = 'http://timeo3.keolis.com/relais/147.php';
 
+/**
+ * Create a Twisto instance
+ * @class Twisto
+ */
 export default class Twisto {
-  constructor() {
 
-  }
-
+  /**
+   * Parse XML response body and check errors are present
+   * @param {String} xml XML response body
+   * @returns {String} Error response value if present
+   * @private
+   */
   _parseConvertedXmlResponseError(xml) {
     const error = (xml.erreur && xml.erreur[0]) ? xml.erreur[0] : null;
 
@@ -23,12 +35,35 @@ export default class Twisto {
     return (error['$']) ? error['$'] : null;
   }
 
+  /**
+   * Capitalize first letter of a string
+   * @param {String} str String to capitalize
+   * @returns {String} Capitlized string
+   * @private
+   */
   _capitalize(str) {
     let newString = str.toLowerCase();
 
     return newString.charAt(0).toUpperCase() + newString.slice(1);
   }
 
+  /**
+   * @name Twisto#getLines
+   * @description Return all lines of buses and tramways
+   * @method
+   * @returns {Object[]} Array of lines buses and tramways
+   *
+   * @example
+   * var Twisto = require('twisto-node-api');
+   * var twst = new Twisto();
+   * twst.getLines()
+   *   .then(function (lines) {
+   *     console.log('Lines: ', lines)
+   *   })
+   *   .catch(function (err) {
+   *     console.error('Error: ', err);
+   *   });
+   */
   getLines() {
     return new Promise((resolve, reject) => {
       request.get(TWISTO_ENDPOINT).query({
@@ -131,6 +166,29 @@ export default class Twisto {
     });
   }
 
+  /**
+   * @name Twisto#getBusStopsByLine
+   * @description Return all stops by bus line
+   * @method
+   * @param {String} code Bus/Tramway code line
+   * @param {String} endpoint Bus/Tramway endpoint code
+   * @returns {Object[]} Array of bus stops
+   *
+   * @example
+   * var Twisto = require('twisto-node-api');
+   * var twst = new Twisto();
+   * twst.getLines()
+   *   .then(function (lines) {
+   *
+   *     return twst.getBusStopsByLine(lines[0].code, 'A');
+   *   })
+   *   .then(function (stops) {
+   *     console.log('Stops: ', stops);
+   *   })
+   *   .catch(function (err) {
+   *     console.error('Error: ', err);
+   *   });
+   */
   getBusStopsByLine(code, endpoint) {
     return new Promise((resolve, reject) => {
       request.get(TWISTO_ENDPOINT).query({
@@ -193,6 +251,32 @@ export default class Twisto {
     });
   }
 
+  /**
+   * @name Twisto#getNextBusesByBusStop
+   * @description Return next buses by bus line
+   * @method
+   * @param {String} reference Bus/Tramway stop reference
+   * @returns {Object[]} Array of next buses
+   *
+   * @example
+   * var Twisto = require('twisto-node-api');
+   * var twst = new Twisto();
+   * twst.getLines()
+   *   .then(function (lines) {
+   *
+   *     return twst.getBusStopsByLine(lines[0].code, 'A');
+   *   })
+   *   .then(function (stops) {
+   *
+   *     return twst.getNextBusesByBusStop(stops[0].reference);
+   *   })
+   *   .then(function (buses) {
+   *     console.log('Buses: ', buses);
+   *   })
+   *   .catch(function (err) {
+   *     console.error('Error: ', err);
+   *   });
+   */
   getNextBusesByBusStop(reference) {
     return new Promise((resolve, reject) => {
       request.get(TWISTO_ENDPOINT).query({
