@@ -1,6 +1,6 @@
 {
   "name": "twisto-node-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Implémentation de l'API Twisto pour NodeJs",
   "main": "lib",
   "scripts": {
